@@ -1,25 +1,18 @@
 class Solution {
 public:
     int missingNumber(vector<int>& nums) {
-        unordered_map <int,int> mpp;
-        int ans;
-        for(int i = 0;i<=nums.size();i++)
-        {
-            mpp[i] = 0;
-        }
+        int predres = 0;
+        int actres = 0;
         for(int i = 0;i<nums.size();i++)
         {
-            mpp[nums[i]] = 1;
+            predres = predres + nums[i];
         }
         for(int i = 0;i<=nums.size();i++)
-        {   if(mpp[i] == 0)
         {
-            ans =  i;
+            actres = actres + i;
         }
-
-            
-        }
-        return ans;
+        return (actres - predres);
+        
         
     }
 };
